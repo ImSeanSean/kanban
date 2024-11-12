@@ -1,0 +1,180 @@
+.kanban-container {
+  height: 100vh;
+  background-color: rgba(182, 185, 184, 0.39);
+}
+.header {
+  background-color: rgb(255, 29, 29);
+  color: white;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.column-holder {
+  background-color: rgb(235, 235, 233);
+  height: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+.column {
+  margin-top: 40px;
+  background-color: rgba(161, 159, 159, 0.214);
+  width: 25%;
+  height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px; /* Add padding for better spacing */
+}
+h2 {
+  color: rgb(0, 192, 0);
+  text-align: center;
+  border-bottom: 1px solid white;
+  width: 100%;
+  padding: 20px;
+  word-break: break-word;
+}
+.task {
+  margin: 5px 0;
+  padding: 4%;
+  display: flex;
+  position: relative;
+}
+.task-holder {
+  height: 75%;
+  overflow-y: auto;
+}
+.add-task-form {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f496;
+  padding: 15px;
+  border: 2px solid #dcdcdc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+.inputB {
+  width: 80%; /* Keep width smaller to fit alongside button */
+  padding: 8px;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+}
+.addButton {
+  color: #ffffff;
+  background-color: #2ad847;
+  padding: 3px 5px; /* Smaller padding to reduce button size */
+  font-size: 0.6em; /* Adjust font size for smaller text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 4px 6px rgba(0, 0, 0, 0.2);
+  margin-left: 1.3ch; /* Space from input */
+}
+.addButton:hover {
+  background-color: #199b14;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.addButton:active {
+  background-color: #40d043;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+.task-format {
+  background-color: rgb(230, 231, 231);
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 10px 20px;
+  height: 20vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* inset shadow */
+  flex-grow: 1;
+}
+.buttons {
+  display: flex; /* Set display to flex to use gap */
+  opacity: 0;
+  transform: translateY(40px); /* Start slightly off the screen 
+*/
+  transition: opacity 0.9s ease, transform 0.9s ease; /* Smooth 
+transition for opacity and transform */
+  gap: 10px;
+  padding: 20px;
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  pointer-events: none; /* Prevent interaction with hidden 
+buttons */
+}
+.task-format:hover .buttons {
+  opacity: 1;
+  display: flex; /* Show buttons when hovering over the task */
+  transform: translateY(0); /* Slide to original position */
+  pointer-events: auto; /* Enable interaction when visible */
+}
+.edit,
+.delete {
+  padding: 0.7em;
+  /* position: relative; */
+  top: 5vh;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* inset shadow */
+  font-size: 0.8ch;
+}
+.due-date {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(230, 230, 230); /* Light background for 
+contrast */
+  padding: 10px;
+  border-radius: 50%; /* Makes the background circular */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 12px;
+  cursor: pointer;
+  top: 10px;
+}
+.due-date svg {
+  fill: #007bff; /* Make the calendar icon blue */
+  width: 24px; /* Increase the icon size */
+  height: 24px;
+}
+.due-date:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover 
+*/
+}
+.edit:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover 
+*/
+}
+.delete:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover 
+*/
+}
+.due-date:hover svg {
+  fill: white; /* Change icon color to white on hover */
+}
+.edit {
+  background-color: rgb(35, 255, 35);
+}
+.delete {
+  background-color: #ff4b4b;
+}
+.due-date:active {
+  background-color: rgba(255, 255, 255, 0.554); /* Change color 
+on click */
+  transform: scale(0.95); /* Button gets slightly smaller when 
+clicked */
+}
+.edit:active {
+  background-color: rgb(19, 137, 19); /* Change color on click 
+*/
+  transform: scale(0.95); /* Button gets slightly smaller when 
+clicked */
+}
+.delete:active {
+  background-color: rgb(146, 24, 24); /* Change color on click 
+*/
+  transform: scale(0.95); /* Button gets slightly smaller when 
+clicked */
+}
+.text label {
+  font-size: 10px;
+  color: #007bff;
+}

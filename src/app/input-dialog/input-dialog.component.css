@@ -1,0 +1,60 @@
+/* General dialog styling */
+.body {
+  padding: 30px;
+  background-color: #f5f5f5; /* Light gray background for the dialog */
+  color: #333; /* Darker text color for contrast */
+  border-radius: 8px; /* Rounded corners for the dialog */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  height: 100%;
+  width: 100%;
+}
+
+/* Title styling */
+.dialog-title {
+  color: #00796b; /* Teal color for the title */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Form field styling */
+mat-form-field {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+}
+
+/* Actions container */
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+button {
+  margin-right: 20px;
+  padding: 10px;
+}
+
+/* Cancel button styling */
+.cancel-button {
+  background-color: #e57373; /* Light red for cancel button */
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Save button styling */
+.save-button {
+  background-color: #81c784; /* Light green for save button */
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
