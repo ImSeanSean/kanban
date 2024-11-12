@@ -1,128 +1,145 @@
-<div class="kanban-container">
-  <div class="header">
-    <h1>KANBAN</h1>
-  </div>
-  <div class="column-holder">
-    <!-- To Do Column -->
-    <div
-      class="column"
-      cdkDropList
-      #todoTask="cdkDropList"
-      (cdkDropListDropped)="drop($event)"
-      [cdkDropListData]="todoTasks"
-      [cdkDropListConnectedTo]="[inProgressTask, doneTask]"
-    >
-      <h2>TO DO</h2>
-      <div class="add-task-form">
-        <input
-          class="inputB"
-          [(ngModel)]="todoTaskName"
-          placeholder="Add a task"
-        />
-        <button class="addButton" (click)="createToDoTask()">Add Task</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="kanban-container">
+      <div class="header">
+        <h1>KANBAN</h1>
       </div>
-      <div class="task-holder">
+      <div class="column-holder">
+        <!-- To Do Column -->
         <div
-          *ngFor="let item of todoTasks; trackBy: trackByFn"
-          cdkDrag
-          class="task"
+          class="column"
+          cdkDropList
+          #todoTask="cdkDropList"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListData]="todoTasks"
+          [cdkDropListConnectedTo]="[inProgressTask, doneTask]"
         >
-          <div class="task-format">
-            <div class="text">
-              <p>{{ item.name }}</p>
-              <label>{{ item.dueDate }}</label>
-            </div>
-            <div class="buttons">
-              <button class="edit" (click)="editTask(item)">Edit</button>
-              <button class="delete" (click)="deleteTask(item.id)">
-                Delete
-              </button>
+          <h2>TO DO</h2>
+          <div class="add-task-form">
+            <input
+              class="inputB"
+              [(ngModel)]="todoTaskName"
+              placeholder="Add a task"
+            />
+            <button class="addButton" (click)="createToDoTask()">
+              Add Task
+            </button>
+          </div>
+          <div class="task-holder">
+            <div
+              *ngFor="let item of todoTasks; trackBy: trackByFn"
+              cdkDrag
+              class="task"
+            >
+              <div class="task-format">
+                <div class="text">
+                  <p>{{ item.name }}</p>
+                  <label>{{ item.dueDate }}</label>
+                </div>
+                <div class="buttons">
+                  <button class="edit" (click)="editTask(item)">Edit</button>
+                  <button class="delete" (click)="deleteTask(item.id)">
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- In Progress Column -->
-    <div
-      class="column"
-      cdkDropList
-      #inProgressTask="cdkDropList"
-      (cdkDropListDropped)="drop($event)"
-      [cdkDropListData]="inProgressTasks"
-      [cdkDropListConnectedTo]="[todoTask, doneTask]"
-    >
-      <h2>In Progress</h2>
-      <div class="add-task-form">
-        <input
-          class="inputB"
-          [(ngModel)]="inProgressTaskName"
-          placeholder="Add a task"
-        />
-        <button class="addButton" (click)="createInProgressTask()">
-          Add Task
-        </button>
-      </div>
-      <div class="task-holder">
+        <!-- In Progress Column -->
         <div
-          *ngFor="let item of inProgressTasks; trackBy: trackByFn"
-          cdkDrag
-          class="task"
+          class="column"
+          cdkDropList
+          #inProgressTask="cdkDropList"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListData]="inProgressTasks"
+          [cdkDropListConnectedTo]="[todoTask, doneTask]"
         >
-          <div class="task-format">
-            <div class="text">
-              <p>{{ item.name }}</p>
-              <label>{{ item.dueDate }}</label>
-            </div>
-            <div class="buttons">
-              <button class="edit" (click)="editTask(item)">Edit</button>
-              <button class="delete" (click)="deleteTask(item.id)">
-                Delete
-              </button>
+          <h2>In Progress</h2>
+          <div class="add-task-form">
+            <input
+              class="inputB"
+              [(ngModel)]="inProgressTaskName"
+              placeholder="Add a task"
+            />
+            <button class="addButton" (click)="createInProgressTask()">
+              Add Task
+            </button>
+          </div>
+          <div class="task-holder">
+            <div
+              *ngFor="let item of inProgressTasks; trackBy: trackByFn"
+              cdkDrag
+              class="task"
+            >
+              <div class="task-format">
+                <div class="text">
+                  <p>{{ item.name }}</p>
+                  <label>{{ item.dueDate }}</label>
+                </div>
+                <div class="buttons">
+                  <button class="edit" (click)="editTask(item)">Edit</button>
+                  <button class="delete" (click)="deleteTask(item.id)">
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Done Column -->
-    <div
-      class="column"
-      cdkDropList
-      #doneTask="cdkDropList"
-      (cdkDropListDropped)="drop($event)"
-      [cdkDropListData]="doneTasks"
-      [cdkDropListConnectedTo]="[inProgressTask, todoTask]"
-    >
-      <h2>Done</h2>
-      <div class="add-task-form">
-        <input
-          class="inputB"
-          [(ngModel)]="doneTaskName"
-          placeholder="Add a task"
-        />
-        <button class="addButton" (click)="createDoneTask()">Add Task</button>
-      </div>
-      <div class="task-holder">
+        <!-- Done Column -->
         <div
-          *ngFor="let item of doneTasks; trackBy: trackByFn"
-          cdkDrag
-          class="task"
+          class="column"
+          cdkDropList
+          #doneTask="cdkDropList"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListData]="doneTasks"
+          [cdkDropListConnectedTo]="[inProgressTask, todoTask]"
         >
-          <div class="task-format">
-            <div class="text">
-              <p>{{ item.name }}</p>
-              <label>{{ item.dueDate }}</label>
-            </div>
-            <div class="buttons">
-              <button class="edit" (click)="editTask(item)">Edit</button>
-              <button class="delete" (click)="deleteTask(item.id)">
-                Delete
-              </button>
+          <h2>Done</h2>
+          <div class="add-task-form">
+            <input
+              class="inputB"
+              [(ngModel)]="doneTaskName"
+              placeholder="Add a task"
+            />
+            <button class="addButton" (click)="createDoneTask()">
+              Add Task
+            </button>
+          </div>
+          <div class="task-holder">
+            <div
+              *ngFor="let item of doneTasks; trackBy: trackByFn"
+              cdkDrag
+              class="task"
+            >
+              <div class="task-format">
+                <div class="text">
+                  <p>{{ item.name }}</p>
+                  <label>{{ item.dueDate }}</label>
+                </div>
+                <div class="buttons">
+                  <button class="edit" (click)="editTask(item)">Edit</button>
+                  <button class="delete" (click)="deleteTask(item.id)">
+                    Delete
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </body>
+</html>
